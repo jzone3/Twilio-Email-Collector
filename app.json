@@ -1,0 +1,6 @@
+{
+  "name": "Twilio Email Collector",
+  "description": "Users can text their email to a phone number and it will add it to a Google Docs spreadsheet (through a form)",
+  "repository": "https://github.com/jzone3/Twilio-Email-Collector",
+  "logo": "http://www.ycombinator.com/images/ycombinator-logo-fb889e2e.png"
+}
