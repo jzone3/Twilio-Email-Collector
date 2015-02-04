@@ -4,7 +4,7 @@
 	<title>Collect Phone Numbers!</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="static/custom.css" />
+	<link rel="stylesheet" type="text/css" href="/static/custom.css" />
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 <body>
@@ -14,39 +14,49 @@
 			<div class="width:50%"><h4 class="page-subtitle">Easily make a site to direct your Twilio number to. People will be able to text their email address to you and it will be logged in a google docs spreadsheet.</h4></div>
 		</div>
 		<hr>
-		<div class="jumbotron">
+		<div class="content">
 			<h3>Create phone number:</h3>
-			<br><br>
 			<form method="POST" action="/create_phone">
 				<div class="row">
-					<div class="col-lg-3 right"><label class="control-label" for="google_docs_url">Google Docs Form URL</label></div>
-					<div class="col-lg-7">
-						<input type="text" class="form-control" id="google_docs_url" name="google_docs_url" placeholder="https://docs.google.com/forms/d/13e8WNQePgFPhvP45_QU9WFsgcgkRtOAuTpcBjnx-Zh4/viewform">
-						everything optional, must be live link to a form (ends with /viewform)
+					<div class="col-lg-6">
+						<input type="text" class="form-control" id="google_docs_url" name="google_docs_url" placeholder="Google Docs Form URL" data-original-title="Make sure all elements are optional and that the URL ends with '/viewform'">
+						<!-- https://docs.google.com/forms/d/13e8WNQePgFPhvP45_QU9WFsgcgkRtOAuTpcBjnx-Zh4/viewform -->
 					</div>
+					<div class="col-lg-4 left"></div>
 					<div class="col-lg-2"></div>
 				</div>
 				<div class="row">
-					<div class="col-lg-3 right"><label class="control-label" for="success_msg">Success Message</label></div>
-					<div class="col-lg-7">
-						<input type="text" class="form-control" id="success_msg" name="success_msg" placeholder="Thanks! Your email has been logged :)">
+					<div class="col-lg-6">
+						<input type="text" class="form-control" id="success_msg" name="success_msg" placeholder="Success Message" data-original-title="Thanks! Your email has been logged :)">
 					</div>
+					<div class="col-lg-4 left"></div>
 					<div class="col-lg-2"></div>
 				</div>
 				<div class="row">
-					<div class="col-lg-3 right"><label class="control-label" for="failure_msg">Failure Message</label></div>
-					<div class="col-lg-7">
-						<input type="text" class="form-control" id="failure_msg" name="failure_msg" placeholder="Sorry, that doesn't look like an email">
+					<div class="col-lg-6">
+						<input type="text" class="form-control" id="failure_msg" name="failure_msg" placeholder="Failure Message" data-original-title="Sorry, that doesn't look like an email">
 					</div>
+					<div class="col-lg-4 left"></div>
 					<div class="col-lg-2"></div>
 				</div>
 				<br>
-				<div class="submit">
-					<button class="btn btn-lg btn-primary" type="submit">Create!</button>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="submit">
+							<button class="btn btn-lg btn-primary" type="submit">Create!</button>
+						</div>
+					</div>
+					<div class="col-lg-4 left"></div>
+					<div class="col-lg-2"></div>
 				</div>
 			</form>
 		</div>
 	</div>
 	<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script>
+	$("#google_docs_url").tooltip();
+	$("#success_msg").tooltip();
+	$("#failure_msg").tooltip();
+	</script>
 </body>
 </html>

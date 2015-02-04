@@ -1,17 +1,22 @@
 body {
 	padding-top: 10px;
+	height: 100%;
+	width: 100%;
+	background: url('/static/phone_table.jpg') no-repeat center center fixed;
+	background-size: cover;
+	color: #ecf0f1;
 }
 
 h1.page-title {
-	text-align: center;
+	text-align: right;
 	font-size: 50px;
 }
 
 .page-subtitle-wrapper {
-	text-align: center;
+	text-align: right;
 	width: 50%;
 	margin-left: auto;
-	margin-right: auto;
+	margin-right: 0;
 }
 
 h4.page-subtitle {
@@ -27,4 +32,25 @@ h4.page-subtitle {
 
 .submit {
 	text-align: center;
+}
+
+.content {
+	background-color: rgba(238, 238, 238, 0);
+	/*padding-top: 10px;
+	padding-left: 5px;
+	margin-left: 5px;*/
+}
+
+.message {
+	max-width: 570px;
+	margin-left: auto;
+	margin-right: 0;
+}
+
+.row {
+	padding-top: 5px;
+}
+
+input {
+	border-radius: 0;
 }
