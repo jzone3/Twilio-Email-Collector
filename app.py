@@ -9,7 +9,7 @@ import datetime
 app = Flask(__name__)
 DEBUG = True
 
-MONGO_DB_URL = os.getenv('MONGOLAB_URL')
+MONGO_DB_URL = os.getenv('MONGOLAB_URI')
 print MONGO_DB_URL
 client = MongoClient(MONGO_DB_URL)
 db = client.get_default_database()
