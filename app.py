@@ -48,7 +48,7 @@ def phone(mongo_uid):
 		return render_template("create_phone.html", phone_msg="Phone created! Change the Messagine Request URL on Twilio the current URL.", phone_url="http://emailcollector.herokuapp.com/phone/" + mongo_uid + "/")
 	phone = phones_db.find_one({"_id" : ObjectId(mongo_uid)})
 	print phone
-	if phone is None or phone.count() < 1:
+	if phone is None:
 		return render_template("create_phone.html", phone_msg="ERROR 404: Page not found"), 404
 	import pdb; pdb.set_trace()
 	phone_number = request.form.get('From').strip()
