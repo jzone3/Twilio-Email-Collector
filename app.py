@@ -35,6 +35,7 @@ def make_url(url):
 
 def submit_form(google_form_url, phone_number, email, city="", state=""):
 	formatted_url = google_form_url.format(phone=phone_number, email=email, city=city, state=state)
+	print formatted_url
 	r = requests.get(url=formatted_url)
 
 def is_email(email):
@@ -47,7 +48,6 @@ def phone(mongo_uid):
 	if request.method != 'POST':
 		return render_template("create_phone.html", phone_msg="Phone created! Change the Messagine Request URL on Twilio the current URL.", phone_url="http://emailcollector.herokuapp.com/phone/" + mongo_uid + "/")
 	phone = phones_db.find_one({"_id" : ObjectId(mongo_uid)})
-	print phone
 	if phone is None:
 		return render_template("create_phone.html", phone_msg="ERROR 404: Page not found"), 404
 	phone_number = request.form.get('From').strip()
