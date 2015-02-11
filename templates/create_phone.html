@@ -12,7 +12,10 @@
 		<h1 class="page-title"><a style="color:#ecf0f1;" href="/">Collect emails</a></h1>
 		<hr>
 		<div class="right message content">
-			<h1 class="right">{{phone_url}}</h1>
+			<h1 class="right">{{phone_msg}}</h1>
+			{% if phone_url %}
+			<h4 class="right"><a href="{{phone_url}}">{{phone_url}}</a></h4>
+			{% endif %}
 		</div>
 	</div>
 	<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>

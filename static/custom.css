@@ -53,4 +53,9 @@ h4.page-subtitle {
 
 input {
 	border-radius: 0;
+	margin-top: 5px;
+}
+
+a, a:hover, a:visited, a:active {
+	color: #ecf0f1;
 }

@@ -10,7 +10,6 @@ app = Flask(__name__)
 DEBUG = True
 
 MONGO_DB_URL = os.getenv('MONGOLAB_URI')
-print MONGO_DB_URL
 client = MongoClient(MONGO_DB_URL)
 db = client.get_default_database()
 phones_db = db.phones
@@ -42,13 +41,15 @@ def is_email(email):
 
 @app.route('/phone/<mongo_uid>/', methods=['GET', 'POST'])
 def phone(mongo_uid):
-	if request.method != 'POST':
-		return render_template("create_phone.html", phone_url="Phone created! Give twilio the current URL")
 	if mongo_uid is None:
-		return render_template("create_phone.html", phone_url="ERROR 404: Page not found"), 404
+		return render_template("create_phone.html", phone_msg="ERROR 404: Page not found"), 404
+	if request.method != 'POST':
+		return render_template("create_phone.html", phone_msg="Phone created! Give Twilio the current URL.", phone_url="http://emailcollector.herokuapp.com/phone/" + mongo_uid)
 	phone = phones_db.find_one({"_id" : ObjectId(mongo_uid)})
+	print phone
 	if phone is None or phone.count() < 1:
-		return render_template("create_phone.html", phone_url="ERROR 404: Page not found"), 404
+		return render_template("create_phone.html", phone_msg="ERROR 404: Page not found"), 404
+	import pdb; pdb.set_trace()
 	phone_number = request.form.get('From').strip()
 	city = request.form.get('FromCity').strip()
 	state = request.form.get('FromState').strip()
@@ -76,7 +77,7 @@ def create_phone():
 	if _id:
 		return redirect('/phone/' + str(_id))
 	# print google_docs_url, success_msg, failure_msg
-	return render_template("create_phone.html", phone_url="ERROR")
+	return render_template("create_phone.html", phone_msg="ERROR")
 
 if __name__ == '__main__':
 	port = int(os.environ.get('PORT', 8000))
