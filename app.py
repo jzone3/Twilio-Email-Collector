@@ -27,15 +27,15 @@ def make_url(url):
 	get_variables['city'] = text.split(s + "City")[0].split('for="')[-1]
 	get_variables['state'] = text.split(s + "State")[0].split('for="')[-1]
 	return base_url + "/formResponse?ifq&" + \
-				get_variables['email'] + "={email}&" + \
-				get_variables['phone'] + "={phone}&" + \
-				get_variables['city'] + "={city}&" + \
-				get_variables['state'] + "={state}&" + \
+				get_variables['email'].replace("_", ".") + "={email}&" + \
+				get_variables['phone'].replace("_", ".") + "={phone}&" + \
+				get_variables['city'].replace("_", ".") + "={city}&" + \
+				get_variables['state'].replace("_", ".") + "={state}&" + \
 				"submit=Submit"
 
 def submit_form(google_form_url, phone_number, email, city="", state=""):
 	formatted_url = google_form_url.format(phone=phone_number, email=email, city=city, state=state)
-	print formatted_url
+	# print formatted_url
 	r = requests.get(url=formatted_url)
 
 def is_email(email):
