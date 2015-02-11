@@ -35,6 +35,7 @@ def make_url(url):
 
 def submit_form(google_form_url, phone_number, email, city="", state=""):
 	formatted_url = google_form_url.format(phone=phone_number, email=email, city=city, state=state)
+	print formatted_url
 	r = requests.get(url=formatted_url)
 
 def is_email(email):
