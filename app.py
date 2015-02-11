@@ -8,7 +8,7 @@ from pymongo import MongoClient
 import datetime
 
 app = Flask(__name__)
-DEBUG = True
+DEBUG = False
 
 MONGO_DB_URL = os.getenv('MONGOLAB_URI')
 client = MongoClient(MONGO_DB_URL)
@@ -50,7 +50,6 @@ def phone(mongo_uid):
 	print phone
 	if phone is None:
 		return render_template("create_phone.html", phone_msg="ERROR 404: Page not found"), 404
-	import pdb; pdb.set_trace()
 	phone_number = request.form.get('From').strip()
 	city = request.form.get('FromCity').strip()
 	state = request.form.get('FromState').strip()
